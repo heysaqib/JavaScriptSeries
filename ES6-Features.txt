@@ -1,0 +1,258 @@
+ES6 (ECMAScript 2015) introduced many powerful features that made JavaScript more efficient and easier to write. Below is a **complete list** of key ES6 features:
+
+---
+
+### **1️⃣ let & const (Block-scoped Variables)**
+- `let`: Block-scoped variable (mutable)
+- `const`: Block-scoped constant (immutable)
+
+```javascript
+let age = 25;  // Can be reassigned
+const name = "Alex";  // Cannot be reassigned
+```
+
+---
+
+### **2️⃣ Template Literals (` `)**
+- Use **backticks (`) instead of quotes**.
+- Supports **multi-line strings** and **string interpolation** (`${}`).
+
+```javascript
+let user = "John";
+console.log(`Hello, ${user}!`);
+```
+
+---
+
+### **3️⃣ Arrow Functions (`=>`)**
+- Shorter syntax for functions.
+
+```javascript
+const add = (a, b) => a + b;
+console.log(add(5, 3));  // 8
+```
+
+---
+
+### **4️⃣ Default Parameters**
+- Set default values for function parameters.
+
+```javascript
+function greet(name = "Guest") {
+    console.log(`Hello, ${name}!`);
+}
+greet();  // Hello, Guest!
+```
+
+---
+
+### **5️⃣ Destructuring Assignment**
+- Extract values from objects/arrays easily.
+
+```javascript
+// Array Destructuring
+let [a, b] = [10, 20];
+console.log(a, b);  // 10 20
+
+// Object Destructuring
+let userInfo = { name: "Alex", age: 25 };
+let { name, age } = userInfo;
+console.log(name, age);  // Alex 25
+```
+
+---
+
+### **6️⃣ Spread (`...`) and Rest (`...`) Operators**
+- **Spread**: Expands an array/object.
+- **Rest**: Collects multiple elements into an array.
+
+```javascript
+// Spread
+let nums = [1, 2, 3];
+let newNums = [...nums, 4, 5];
+console.log(newNums);  // [1, 2, 3, 4, 5]
+
+// Rest
+function sum(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3, 4));  // 10
+```
+
+---
+
+### **7️⃣ `map()`, `filter()`, and `reduce()` (Array Methods)**
+- **`map()`**: Transforms each array element.
+- **`filter()`**: Returns elements matching a condition.
+- **`reduce()`**: Accumulates array values into a single value.
+
+```javascript
+let nums = [1, 2, 3, 4];
+
+// map()
+let squares = nums.map(n => n * n);
+console.log(squares);  // [1, 4, 9, 16]
+
+// filter()
+let evens = nums.filter(n => n % 2 === 0);
+console.log(evens);  // [2, 4]
+
+// reduce()
+let sum = nums.reduce((acc, n) => acc + n, 0);
+console.log(sum);  // 10
+```
+
+---
+
+### **8️⃣ Ternary Operator (`? :`)**
+- Shorter if-else statement.
+
+```javascript
+let age = 18;
+let message = (age >= 18) ? "Adult" : "Minor";
+console.log(message);  // Adult
+```
+
+---
+
+### **9️⃣ Optional Chaining (`?.`)**
+- Prevents errors when accessing deep object properties.
+
+```javascript
+let user = { profile: { name: "John" } };
+console.log(user?.profile?.name);  // John
+console.log(user?.address?.city);  // undefined (No error)
+```
+
+---
+
+### **🔟 Promises (`then`, `catch`)**
+- Handles asynchronous operations.
+
+```javascript
+let fetchData = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Data received!"), 2000);
+});
+
+fetchData.then(data => console.log(data)).catch(err => console.log(err));
+```
+
+---
+
+### **1️⃣1️⃣ Async & Await**
+- Cleaner way to handle promises.
+
+```javascript
+async function getData() {
+    let data = await new Promise(resolve => setTimeout(() => resolve("Data loaded!"), 2000));
+    console.log(data);
+}
+getData();
+```
+
+---
+
+### **1️⃣2️⃣ Classes & Inheritance**
+- **`class`** keyword for object-oriented programming.
+
+```javascript
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+let dog = new Dog("Buddy");
+dog.speak();  // Buddy barks.
+```
+
+---
+
+### **1️⃣3️⃣ Modules (`import` & `export`)**
+- Allows importing/exporting code between files.
+
+#### **Exporting (in `math.js`)**
+```javascript
+export function add(a, b) {
+    return a + b;
+}
+```
+
+#### **Importing (in `main.js`)**
+```javascript
+import { add } from './math.js';
+console.log(add(2, 3));  // 5
+```
+
+---
+
+### **1️⃣4️⃣ `Set` and `Map` (New Data Structures)**
+- **Set**: Stores unique values.
+- **Map**: Stores key-value pairs.
+
+```javascript
+// Set
+let numsSet = new Set([1, 2, 3, 3, 4]);
+console.log(numsSet);  // {1, 2, 3, 4}
+
+// Map
+let userMap = new Map();
+userMap.set("name", "Alice");
+userMap.set("age", 30);
+console.log(userMap.get("name"));  // Alice
+```
+
+---
+
+### **1️⃣5️⃣ `for...of` and `for...in` Loops**
+- **`for...of`** → Iterates over values.
+- **`for...in`** → Iterates over object keys.
+
+```javascript
+// for...of (arrays)
+let nums = [10, 20, 30];
+for (let num of nums) {
+    console.log(num);  // 10, 20, 30
+}
+
+// for...in (objects)
+let person = { name: "John", age: 25 };
+for (let key in person) {
+    console.log(key, person[key]);  // name John, age 25
+}
+```
+
+---
+
+## **Summary of ES6 Features**
+| Feature | Description |
+|---------|-------------|
+| `let` & `const` | Block-scoped variables |
+| Template Literals | String interpolation using backticks |
+| Arrow Functions | Shorter function syntax (`=>`) |
+| Default Parameters | Set default values for function parameters |
+| Destructuring | Extract values from arrays/objects easily |
+| Spread & Rest (`...`) | Spread expands, rest collects values |
+| `map()`, `filter()`, `reduce()` | Useful array methods |
+| Ternary Operator | Short `if-else` (`condition ? true : false`) |
+| Optional Chaining (`?.`) | Avoids errors for missing object properties |
+| Promises | Handles asynchronous operations |
+| Async & Await | Cleaner way to work with Promises |
+| Classes & Inheritance | Object-oriented programming in JS |
+| Modules (`import/export`) | Split code into multiple files |
+| `Set` & `Map` | New data structures for unique values & key-value pairs |
+| `for...of` & `for...in` | Loops for arrays & objects |
+
+---
+
+These are the most important **ES6** features! 🚀  
+Which one do you want to learn in-depth first? 😊
