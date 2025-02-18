@@ -15,6 +15,8 @@ function checkSingleChar() {
 let char = checkSingleChar();
 console.log("Entered character is: ", char);
 
+
+
 // 2. Accept two inputs from the user and output their sum.
 
 function getInteger() {//input integer
@@ -68,6 +70,8 @@ if (num1 !== null) {
     console.log("Operation cancelled while entering integer.");
 }
 
+
+
 // 3. Program should accept 3 inputs from the user and calculate simple interest for the given inputs. Formula: SI=(P*R*n)/100)
 
 function calculateSI(p, t, r) {
@@ -88,6 +92,8 @@ let rate = prompt("Enter the Rate of Interest: ");
 
 let SI = calculateSI(principal, time, rate);
 alert("Simple Interest: " + SI);
+
+
 
 // 4. Write a program to check whether a student has passed or failed in a subject after he    or she enters their mark (pass mark for a subject is 50 out of 100).
 
@@ -113,6 +119,8 @@ function checkResult() {
 let result = checkResult();
 console.log(result);
 alert(result);
+
+
 
 // 5. Write a program to show the grade obtained by a student after he/she enters their total mark percentage.
 
@@ -152,6 +160,8 @@ let result = checkResult();
 console.log("Grade: ", result);
 alert("Grade: " + result);
 
+
+
 // 6. Using the ‘switch case’ write a program to accept an input number from the user and output the day as follows.
 
 function selectDay() {
@@ -179,6 +189,8 @@ function selectDay() {
 
 alert(selectDay());
 
+
+
 // 7. Write a program to print the multiplication table of given numbers.
 
 function printMultiplication() {
@@ -199,6 +211,8 @@ function printMultiplication() {
 }
 
 printMultiplication();
+
+
 
 // 8. Write a program to find the sum of all the odd numbers for a given limit
 
@@ -232,17 +246,19 @@ function sumofOdd() {
 
 sumofOdd();
 
+
+
 // 9. Write a program to print the following pattern (hint: use nested loop)
-    // 1
-    // 1 2
-    // 1 2 3
-    // 1 2 3 4
-    // 1 2 3 4 5
+// 1
+// 1 2
+// 1 2 3
+// 1 2 3 4
+// 1 2 3 4 5
 
 function printPattern() {
-    for (let i = 1; i <=5; i++) {
+    for (let i = 1; i <= 5; i++) {
         let k = "";
-        for(let j = 1; j <= i; j++) {
+        for (let j = 1; j <= i; j++) {
             k += j + " ";
         }
         console.log(k.trim());
@@ -282,6 +298,7 @@ if (isNaN(size) || size <= 0) {
         swapArrays(arr1, arr2);
     }
 }
+
 
 
 // 10. Program should accept an array from the user, swap the values of two arrays and display it on the console
@@ -339,12 +356,13 @@ if (size !== null) {
     console.log("Array 1 before swap: ", arr1.join(","));
     console.log("Array 2 before swap: ", arr2.join(","));
 
-    swapArrays(arr1,arr2);
-    
+    swapArrays(arr1, arr2);
+
     //display arrays after swapp
     console.log("Array 1 after swap: ", a.join(","));
     console.log("Array 2 after swap: ", b.join(","));
 }
+
 
 
 // 11. Program should accept an array and display the number of even numbers contained in that array
@@ -353,7 +371,7 @@ function countEvenNum() {
     let input = prompt(`Enter the array elements (comma-separated): `);
 
     //handle cancel event
-    if(input === null) {
+    if (input === null) {
         console.log("Session terminated by user!!");
         return null;
     }
@@ -366,11 +384,11 @@ function countEvenNum() {
 
     // Convert input to an array of numbers
     let arr = input.split(",")
-                    .map(item => item.trim()) // Trim spaces
-                    .filter(item => item != "") // Remove empty strings
-                    .map(Number) // Convert to numbers
-                    .filter(item => !isNaN(item)); // Remove non numeric values
-    
+        .map(item => item.trim()) // Trim spaces
+        .filter(item => item != "") // Remove empty strings
+        .map(Number) // Convert to numbers
+        .filter(item => !isNaN(item)); // Remove non numeric values
+
     // Handle cases where no valid numbers are entered
     if (arr.length === 0) {
         console.log("No valid numbers entered! Please try again.");
@@ -389,5 +407,82 @@ function countEvenNum() {
 countEvenNum();
 
 
+
 // 12. Program should accept and array, sort the array values in descending order and display it
 
+function sortDescend() {
+    let input = prompt("Enter the array elements(comma-seperated): ");
+
+    //handle blank input
+    if (input === "") {
+        console.log("Input can't be blank!!");
+        return sortDescend();
+    }
+
+    //handle cancel event
+    if (input === null) {
+        console.log("User pressed cancel button.");
+        return null;
+    }
+
+    let arr = input.split(",")// drop commas
+        .map(item => item.trim()) // remove spaces
+        .filter(item => !isNaN(item)) // remove non integers
+        .filter(item => item != "") // remove empty elements
+        .map(Number) // convert into numbers
+
+
+    //check if the array has any numbers after filtering
+    if (arr.length === 0) {
+        console.log("Please enter an array with valid numbers!!");
+        return sortDescend();
+    }
+
+    console.log("The Entered array is: ", arr.join(","));
+
+    // sort the array in descending order
+    arr.sort((a, b) => b - a);
+
+    console.log("Sorted array is: ", arr.join(","));
+}
+
+sortDescend();
+
+
+
+// 13. Write a program to identify whether a string is a palindrome or not
+
+
+function isPalindrome() {
+
+    let str = prompt("Enter the string to check for a palindrome: ");
+
+    if (str === null) {
+        console.log("Cancelled by user!!");
+        return null;
+    }
+
+    if (str === "") {
+        console.log("Input empty!!");
+        return isPalindrome();
+    }
+
+    //remove spaces and normalize the string to lowercase
+    normStr = str.replace(/\s+/g, "").toLowerCase();
+
+    //split the string to array of characters
+    let revArr = normStr.split("");
+
+    //reverse it & form a string again
+    let revStr = revArr.reverse().join("");
+
+    //compare both strings
+    if (normStr == revStr) {
+        console.log("Palindrome!!");
+    }
+    else {
+        console.log("Not a Palindrome!!");
+    }
+}
+
+isPalindrome();
