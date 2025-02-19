@@ -349,3 +349,26 @@ function displayArray(array) {//function to console log the array
 
 //call main function
 main();
+
+
+
+// 21. Write a program to multiply the adjacent values of an array and store it in an another array
+let size = parseInt(prompt("Enter the array limit\n"));
+
+if (!isNaN(size) && size > 0) {
+    let arr = prompt("Enter the values of array\n").split(" ").map(Number); // Convert input string to an array of numbers
+
+    if (arr.length !== size || arr.some(num => isNaN(num))) {
+        console.log("Invalid input! Please enter exactly", size, "numbers.");
+    } else {
+        let newArr = []; // Initialize an empty array
+
+        for (let i = 0; i < arr.length - 1; i++) {
+            newArr[i] = arr[i] + arr[i + 1]; // Sum adjacent elements
+        }
+
+        console.log("Output\n", newArr.join(" "));
+    }
+} else {
+    console.log("Invalid limit entered!");
+}

@@ -497,10 +497,10 @@ function getArray(size, n) {//get array as input
 
     for (let i = 0; i < size; i++) {
         let input = prompt(`Enter row ${i + 1} elements of array ${n} (comma-separated):  `);
-        
+
         // Convert input into an array of numbers
         let row = input.split(",").map(item => item.trim()).map(Number);
-        
+
         // Validate input
         if (row.length !== size || row.some(isNaN)) {
             console.log(`****Error: You must enter exactly ${size} valid numbers! Try again.****`);
@@ -743,3 +743,80 @@ function checkGrade() {
 }
 
 checkGrade();
+
+
+
+// 19. Write a program to find out the income tax amount of a person.
+// Program should accept annual income of a person
+// Output the amount of tax he has to pay
+
+function calcIncomeTax(amt) {
+    let tax;
+    if (amt > 1000000 && amt <= 5000000) {//10L to 50L
+        tax = amt * 0.3;
+    }
+    else if (amt > 500000 && amt <= 1000000) {//5L to 10L
+        tax = amt * 0.2;
+    }
+    else if (amt > 250000 && amt <= 500000) {//2.5L to 5L
+        tax = amt * 0.05;
+    }
+    else {//less than 2.5L
+        tax = 0;
+    }
+    return tax;
+}
+
+let income = parseFloat(prompt("Enter the annual income\n"));
+
+if (isNaN(income) || income < 0) {//check for invalid input
+    console.log("Invalid income! Please enter a valid positive number.");
+} else {
+    let tax = parseFloat(calcIncomeTax(income));//func call
+    console.log("Income tax amount = ",tax.toFixed(2));
+}
+
+
+
+// 20. Write a program to print the following pattern using for loop
+// 1
+// 2	3
+// 4	5	6
+// 7	8	9	10
+
+let num = 1; // Start from 1
+
+for (let i = 1; i <= 4; i++) {  // Loop for rows
+    let rowStr = "";  
+
+    for (let j = 1; j <= i; j++) { // Loop for numbers in each row
+        rowStr += num + "\t";  // Append number with tab space
+        num++;  // Increment number
+    }
+
+    console.log(rowStr); // Print row
+}
+
+
+
+// 21. Write a program to multiply the adjacent values of an array and store it in an another array
+
+let size = parseInt(prompt("Enter the array limit\n"));
+
+if (!isNaN(size) && size > 0) {
+    let arr = prompt("Enter the values of array\n").split(" ").map(Number); // Convert input string to an array of numbers
+
+    if (arr.length !== size || arr.some(num => isNaN(num))) {
+        console.log("Invalid input! Please enter exactly", size, "numbers.");
+    } else {
+        let newArr = []; // Initialize an empty array
+
+        for (let i = 0; i < arr.length - 1; i++) {
+            newArr[i] = arr[i] + arr[i + 1]; // Sum adjacent elements
+        }
+
+        console.log("Output\n", newArr.join(" "));
+    }
+} else {
+    console.log("Invalid limit entered!");
+}
