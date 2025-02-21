@@ -913,3 +913,292 @@ if (!isNaN(size) && size > 0) {
     let myArr = getArray(size);
     displayArray(myArr);
 }
+
+
+
+// 24. Write a menu driven program to calculate the area of a given object.
+
+// Parent Class: Area
+class Area {
+    circle(radius) {
+      return 3.14 * radius * radius;
+    }
+  
+    square(length) {
+      return length * length;
+    }
+  
+    rectangle(length, width) {
+      return length * width;
+    }
+  
+    triangle(base, height) {
+      return 0.5 * base * height;
+    }
+  }
+  
+  // Child Class: MyClass extends Area
+  class MyClass extends Area {
+    menu() {
+      while (true) {
+        console.log("\nEnter your choice:");
+        console.log("1. Circle");
+        console.log("2. Square");
+        console.log("3. Rectangle");
+        console.log("4. Triangle");
+        console.log("5. Exit");
+  
+        let choice = prompt("Choice: ");
+  
+        switch (choice) {
+          case "1":
+            this.circleArea();
+            break;
+          case "2":
+            this.squareArea();
+            break;
+          case "3":
+            this.rectangleArea();
+            break;
+          case "4":
+            this.triangleArea();
+            break;
+          case "5":
+            console.log("\nExiting the program.");
+            return;
+          default:
+            console.log("\nInvalid choice. Please try again.");
+        }
+      }
+    }
+  
+    circleArea() {
+      let radius = parseFloat(prompt("\nEnter the radius: "));
+      if (isNaN(radius) || radius <= 0) {
+        console.log("\nInvalid input. Please enter a valid number.");
+        return;
+      }
+      let result = this.circle(radius);
+      console.log(`\nArea of the circle is: ${result.toFixed(2)}`);
+    }
+  
+    squareArea() {
+      let length = parseFloat(prompt("\nEnter the length: "));
+      if (isNaN(length) || length <= 0) {
+        console.log("\nInvalid input. Please enter a valid number.");
+        return;
+      }
+      let result = this.square(length);
+      console.log(`\nArea of the square is: ${result}`);
+    }
+  
+    rectangleArea() {
+      let length = parseFloat(prompt("\nEnter the length: "));
+      let width = parseFloat(prompt("\nEnter the width: "));
+      if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+        console.log("\nInvalid input. Please enter valid numbers.");
+        return;
+      }
+      let result = this.rectangle(length, width);
+      console.log(`\nArea of the rectangle is: ${result}`);
+    }
+  
+    triangleArea() {
+      let base = parseFloat(prompt("\nEnter the base: "));
+      let height = parseFloat(prompt("\nEnter the height: "));
+      if (isNaN(base) || isNaN(height) || base <= 0 || height <= 0) {
+        console.log("\nInvalid input. Please enter valid numbers.");
+        return;
+      }
+      let result = this.triangle(base, height);
+      console.log(`\nArea of the triangle is: ${result}`);
+    }
+  }
+  
+  // For prompt input in Node.js
+  const prompt = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  // Helper function for synchronous input
+  function promptSync(question) {
+    return new Promise((resolve) => {
+      prompt.question(question, (input) => resolve(input));
+    });
+  }
+  
+  // Overriding prompt function globally
+  global.prompt = promptSync;
+  
+  // Running the program
+  (async () => {
+    const obj = new MyClass();
+    await obj.menu();
+    prompt.close();
+  })();
+  
+
+
+
+// 25. Write a Javascript program to display the status (I.e. display book name, author name & reading status) of books. You are given an object library in the code's template. It contains a list of books with the above mentioned properties.
+
+// Given library object
+var library = [ 
+    {
+        title: 'Bill Gates',
+        author: 'The Road Ahead',
+        readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
+    }
+];
+
+// Function to display the reading status of each book
+function displayBookStatus(library) {
+    for (let i = 0; i < library.length; i++) {
+        let book = library[i];
+        if (book.readingStatus) {
+            console.log(`Already read '${book.title}' by ${book.author}.`);
+        } else {
+            console.log(`You still need to read '${book.title}' by ${book.author}.`);
+        }
+    }
+}
+
+// Call the function to display book statuses
+displayBookStatus(library);
+
+
+
+
+// 26. Given a variable named my_string, try reversing the string using  my_string.split().reverse().join() and then print the reversed string to the console. If the try clause has an error, print the error message to the console. Finally, print the typeof of the my_string variable to the console.
+
+// Function to reverse a string with error handling
+function reverseString(my_string) {
+    try {
+        // Attempt to reverse the string
+        my_string = my_string.split("").reverse().join("");
+        console.log(`Reversed string is : ${my_string}`);
+    } catch (err) {
+        // Handle any errors that occur during reversal
+        console.log(`Error : ${err.message}`);
+    } finally {
+        // Print the type of my_string regardless of success or error
+        console.log(`Type of my_string is : ${typeof my_string}`);
+    }
+}
+
+// Testing the function with different inputs
+reverseString("1234");  // Valid string input
+reverseString(1234);    // Invalid input to trigger an error
+
+
+
+// 27. Given a variable named my_height, you must throw errors under the following conditions:
+         notANumberError- When my_heightis NaN
+         HugeHeightError – When my_heightis greater than
+         TinyHeight Error - When my_heightis less than
+
+
+// Function to validate height and throw appropriate errors
+function validateHeight(my_height) {
+    // Check if height is not a number (NaN)
+    if (isNaN(my_height)) {
+        throw new Error("notANumberError");
+    }
+
+    // Check if height is too large
+    if (my_height > 50) { // Considering 50 as the limit
+        throw new Error("hugeHeightError");
+    }
+
+    // Check if height is too small
+    if (my_height < 5) { // Considering 5 as the lower limit
+        throw new Error("tinyHeightError");
+    }
+
+    // If none of the errors are triggered, return the valid height
+    return my_height;
+}
+
+// Testing the function with different inputs
+function testHeight(input) {
+    try {
+        let result = validateHeight(input);
+        console.log(result);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// Running the provided test cases
+testHeight("seven"); // Should output: notANumberError
+testHeight(77);      // Should output: hugeHeightError
+testHeight(0);       // Should output: tinyHeightError
+testHeight(8);       // Should output: 8
+
+
+
+
+// 28.Create a constructor function that satisfies the following conditions:
+// The name of the constructor function should be Car.
+// It should take three parameters: name, mileage and max_speed.
+// Store these parameter values in their respective thiskeywords: this.name, this.mileage and this.max_speed.
+
+
+// Constructor function for Car
+function Car(name, mileage, max_speed) {
+    this.name = name;           // Assign name to this.name
+    this.mileage = mileage;     // Assign mileage to this.mileage
+    this.max_speed = max_speed; // Assign max_speed to this.max_speed
+}
+
+// Creating instances of Car
+let car1 = new Car("Toyota Camry", 25, 180);
+let car2 = new Car("Honda Civic", 30, 200);
+
+// Display car details
+console.log("Car 1:", car1);
+console.log("Car 2:", car2);
+
+
+
+// 29. Write a myFilter function that takes 2 parameters: myArray and callback. Here, myArray is an array of numbers and callback is a function that takes the elements of myArray as its parameter and returns a boolean true if the sum of the number is even or   false if the sum of the number  is odd.
+
+// Define the myFilter function
+function myFilter(myArray, callback) {
+    // Calculate the sum of all elements in the array
+    let sum = 0;
+    for (let i = 0; i < myArray.length; i++) {
+        sum += myArray[i];
+    }
+
+    // Call the callback function with the sum
+    let isEven = callback(sum);
+    //console.log("Is the sum even?", isEven);
+
+    // Return the sum
+    return sum;
+}
+
+// Define the callback function to check even or odd
+function isSumEven(sum) {
+    return sum % 2 === 0;
+}
+
+// Sample input as a number, converting it to an array of digits
+let input = prompt();
+let myArray = input.split("").map(Number); // Convert string digits to an array of numbers
+
+// Call the myFilter function
+let result = myFilter(myArray, isSumEven);
+console.log("Sum of the array:", result); // Should print 15

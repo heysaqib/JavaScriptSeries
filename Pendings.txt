@@ -1,0 +1,156 @@
+data types
+callback functions
+heigher order functions
+hoisting
+closure
+application of closure & drawbacks of closure
+event loop
+call stack
+callback queue
+spread operator
+rest operator
+promise
+execution context
+array vs object
+map
+filter
+foreach
+ecma script
+statically typed
+dynamic typing
+where is js used
+JSON
+set,map,symbol,etc
+TDZ
+falsy value
+varaiable shadowing
+oop concepts
+prototype
+this
+garbage collector
+optional chaining
+do while
+follow js coding conventions
+add/remove properties in object
+array.reduce():largest negative number
+array.filter():negative numbers
+shallow copy
+deep copy
+currying
+arrow functions vs regular functions(this)
+call,apply,bind
+proxy object
+prototypal inheritance
+strict mode
+passed by value
+passed by refference
+function vs methods
+palindrome
+sum of prime numbers
+slice
+constructor function
+object literals
+json methods
+append child
+remove child
+bitwise operator
+type of coercion vs type casting
+IIFE(immediately invoked function expression),modern alternative
+object.freeze
+promise,promise states,promise methods
+async-await
+using instance properties in methods
+generator function to generate multiple
+function to return the sum of all args
+.map():convert string to upperCase
+destructuring
+understand setTimeout
+return with ternary
+promise.race
+Object.seal
+object.freeze
+proxy object
+deep copying
+Weak set
+class:syntax,methods
+object syntax
+count occurances of a value in array
+loop a string to print a value
+execution order when timer and call backs
+event delegation
+event propagation
+event bubbling
+event capturing
+promise.all
+peomise.race
+promise.any
+setinterval
+weakset
+object prototype
+null pointer eception
+default parameter
+clear interval
+loop a string array to print value
+execution order when timers
+reverse array
+timing feature
+generator function
+memoization
+object destructuring
+dom
+bom
+callback hell
+concatenating arrays,use spread operator(task)
+map vs foreach
+pure function
+functions vs method
+
+return with ternary
+variable shadowing
+arr shift
+rest parameter
+single thread vs synchronus
+slice,splice
+find
+es6 features
+object.assign
+ternary operator
+prototype chain
+lexical environment
+anonymous function
+types of coercion
+implicit type of coercion
+explicit type of coercion
+string coercion
+boolean coercion
+factory function
+arrow function vs normal function
+escape sequence
+unary function
+finally
+instance of
+nullish coalescion
+short circuit evaluation
+how to check a object is empty
+object manipulation
+object methods
+is it possiible to use arrow function as constructor?
+web api vs rest api
+what is middleware
+router chaining
+content negotiation
+upsert query
+regex patterns
+http
+process vs threads(full domain)
+package-lock.json
+default parameters
+typeof,instanceof
+NaN
+
+print from 1-10-in gap of 1s
+find numbers divisible 8 between 100-1
+remove duplicates from an array
+remove last property from object
+middleware to log all parameter names
+prevent right click of a button
